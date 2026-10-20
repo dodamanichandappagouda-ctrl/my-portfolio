@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chandappagouda B. Dodamani | Portfolio & Resume</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #080c14;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.4);
+      --secondary: #818cf8;
+      --accent: #34d399;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --card-border: rgba(56, 189, 248, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(8, 12, 20, 0.7);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .social-hdr-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-left: 1rem;
+      border-left: 1px solid var(--border-color);
+      padding-left: 1rem;
+    }
+
+    .social-hdr-links a {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-hdr-links a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-resume {
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px var(--primary-glow);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-resume:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px var(--primary-glow);
+      color: #000;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 50px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px var(--primary-glow);
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .btn-secondary {
+      padding: 0.8rem 1.8rem;
+      background: var(--bg-glass);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .code-header {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .code-content {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      overflow-wrap: anywhere;
+    }
+
+    .code-keyword { color: #f472b6; }
+    .code-string { color: #a7f3d0; }
+    .code-prop { color: #38bdf8; }
+    .code-num { color: #fbbf24; }
+
+    section { padding: 6rem 0; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--card-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .skill-card:hover::before { opacity: 1; }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-bullets {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-bullets li {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 0.6rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .project-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      border-radius: 4px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .project-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover { color: var(--primary); }
+
+    .edu-certs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.4rem;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .cert-card:hover {
+      border-color: var(--card-border);
+      transform: translateX(5px);
+    }
+
+    .cert-icon {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
+
+    .cert-info h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .cert-info p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(8, 12, 20, 0.95));
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item:hover { color: var(--primary); }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-container {
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    @media print @page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #resumeModal,
+  #resumeModal *,
+  #printable-resume,
+  #printable-resume * {
+    visibility: visible !important;
+  }
+
+  #resumeModal {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    padding: 0 !important;
+    background: white !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+
+  .modal-container {
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  #printable-resume {
+    position: static !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  #printable-resume h1,
+  #printable-resume h3,
+  #printable-resume p,
+  #printable-resume div,
+  #printable-resume span {
+    color: black !important;
+  }
+
+  .modal-close,
+  .modal-actions {
+    display: none !important;
+  }
+}
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .edu-certs-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 { font-size: 2.8rem; }
+      .contact-box { padding: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-grid { gap: 2rem; }
+      .hero-actions { flex-wrap: wrap; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-box { padding: 1.5rem; }
+      .modal-overlay { padding: 0.5rem; }
+      .modal-container { padding: 1.5rem; }
+      .section-title h2 { font-size: 2rem; }
+      .container { padding: 0 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <i class="fa-solid fa-code"></i> CHANDU<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;">
+          <button class="btn-resume" onclick="openResumeModal()">
+            <i class="fa-solid fa-file-pdf"></i> Resume
+          </button>
+
+          <div class="social-hdr-links">
+            <a href="https://www.linkedin.com/in/chandappagouda-dodamani-540993338/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/dodamanichandappagouda-ctrl" target="_blank" rel="noopener noreferrer" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Electronics & Computer Engineering Student
+          </div>
+
+          <h1>Hi, I'm <br><span class="gradient-text">Chandappagouda B. Dodamani</span></h1>
+          <h2>AI-Driven IoT & Microcomputer Systems Enthusiast</h2>
+
+          <p>
+            B.Tech candidate at REVA University (7.6 CGPA). Passionate about hardware-software integration, Raspberry Pi, ESP32, LLM-powered applications, and scalable RAG pipelines.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <i class="fa-solid fa-diagram-project"></i> View Projects
+            </a>
+            <a href="#contact" class="btn-secondary">
+              <i class="fa-solid fa-paper-plane"></i> Get In Touch
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="code-header">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+
+          <div class="code-content">
+            <p><span class="code-keyword">const</span> developer = {</p>
+            <p>&nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-string">'Chandappagouda B Dodamani'</span>,</p>
+            <p>&nbsp;&nbsp;<span class="code-prop">degree</span>: <span class="code-string">'B.Tech in ECM'</span>,</p>
+            <p>&nbsp;&nbsp;<span class="code-prop">cgpa</span>: <span class="code-num">7.6</span>,</p>
+            <p>&nbsp;&nbsp;<span class="code-prop">coreSkills</span>: [<span class="code-string">'Python'</span>, <span class="code-string">'C++'</span>, <span class="code-string">'Raspberry Pi'</span>, <span class="code-string">'ESP32'</span>, <span class="code-string">'RAG'</span>],</p>
+            <p>&nbsp;&nbsp;<span class="code-prop">location</span>: <span class="code-string">'Bangalore, KA, India'</span>,</p>
+            <p>&nbsp;&nbsp;<span class="code-prop">status</span>: <span class="code-string">'Seeking Engineering Roles'</span></p>
+            <p>};</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical <span class="gradient-text">Expertise</span></h2>
+        <p>A breakdown of my technical toolkit and engineering capabilities</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>AI & LLMs</h3>
+          <div class="skill-tags">
+            <span class="tag">LangChain</span>
+            <span class="tag">RAG Pipelines</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Pinecone</span>
+            <span class="tag">Chroma</span>
+            <span class="tag">Hugging Face</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Programming & Systems</h3>
+          <div class="skill-tags">
+            <span class="tag">Python (Advanced)</span>
+            <span class="tag">C</span>
+            <span class="tag">C++</span>
+            <span class="tag">MicroPython</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Linux Shell Scripting</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Core CS & VLSI</h3>
+          <div class="skill-tags">
+            <span class="tag">DBMS</span>
+            <span class="tag">CMOS Design</span>
+            <span class="tag">Cadence Virtuoso</span>
+            <span class="tag">OOP Principles</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>Hardware & Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">Docker</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Arduino IDE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured <span class="gradient-text">Projects</span></h2>
+        <p>Demonstrating end-to-end hardware, software, and AI applications</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <div class="project-title">Pi-hole Network-Wide Ad Blocker</div>
+            <p class="project-desc">Engineered a network-level DNS sinkhole on Raspberry Pi to intercept and block tracking telemetry and ads across 15+ devices.</p>
+            <ul class="project-bullets">
+              <li>Configured automated shell scripts and custom blocklists.</li>
+              <li>Reduced unwanted network bandwidth usage by 35%.</li>
+              <li>Accelerated page load speeds by 20% across local network.</li>
+              <li>Processed 10,000+ daily DNS requests with zero downtime.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="project-tech">
+              <span class="tech-pill">Raspberry Pi</span>
+              <span class="tech-pill">DNS Sinkhole</span>
+              <span class="tech-pill">Linux</span>
+              <span class="tech-pill">Shell Scripting</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dodamanichandappagouda-ctrl" target="_blank" rel="noopener noreferrer" class="project-link">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-title">Smart Telemetry Dashboard</div>
+            <p class="project-desc">Developed an IoT telemetry logging system using ESP32 dual-core processor to handle real-time high-frequency sensor acquisition.</p>
+            <ul class="project-bullets">
+              <li>Concurrent sensor sampling at 100+ samples/second.</li>
+              <li>Deployed wireless performance monitoring over MQTT protocol.</li>
+              <li>Achieved real-time data transmission with &lt;50ms latency.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="project-tech">
+              <span class="tech-pill">MicroPython</span>
+              <span class="tech-pill">ESP32</span>
+              <span class="tech-pill">MQTT</span>
+              <span class="tech-pill">IoT Dashboard</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dodamanichandappagouda-ctrl" target="_blank" rel="noopener noreferrer" class="project-link">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-title">Component-Based E-Commerce App</div>
+            <p class="project-desc">Architected a modular e-commerce system featuring secure user authentication and dynamic transactional database schema.</p>
+            <ul class="project-bullets">
+              <li>Designed normalized relational SQL database schemas handling 500+ records.</li>
+              <li>Optimized indexing to improve query retrieval efficiency by 30%.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="project-tech">
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">DBMS</span>
+              <span class="tech-pill">Web Architecture</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dodamanichandappagouda-ctrl" target="_blank" rel="noopener noreferrer" class="project-link">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="edu-certs-grid">
+        <div>
+          <div class="section-title" style="text-align:left;margin-bottom:2rem;">
+            <h2>Education <span class="gradient-text">Journey</span></h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2024 - 2028</div>
+              <div class="timeline-title">B.Tech in Electronics & Computer Engineering</div>
+              <div class="timeline-sub">REVA University, Bangalore • CGPA: 7.6 / 10.0</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">2023 - 2024</div>
+              <div class="timeline-title">Pre-University Course (PUC) - PCMB</div>
+              <div class="timeline-sub">Vision PU College, Bangalore • Score: 88.5%</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">2021 - 2022</div>
+              <div class="timeline-title">Secondary School Leaving Certificate (SSLC)</div>
+              <div class="timeline-sub">Excellent English Medium School, Vijayapur • Score: 91.2%</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title" style="text-align:left;margin-bottom:2rem;">
+            <h2>Key <span class="gradient-text">Certifications</span></h2>
+          </div>
+
+          <div class="certs-list">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+              <div class="cert-info">
+                <h4>Generative AI Engineering with LLMs</h4>
+                <p>IBM & Coursera (Fine-Tuning, RAG, Transformers, LangChain)</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+              <div class="cert-info">
+                <h4>Generative AI with LLMs</h4>
+                <p>DeepLearning.AI & AWS (LLM Lifecycle, RAG & Fine-Tuning)</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+              <div class="cert-info">
+                <h4>Natural Language Processing Specialization</h4>
+                <p>DeepLearning.AI (Attention Models, Transformers)</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+              <div class="cert-info">
+                <h4>Fundamentals of Deep Learning</h4>
+                <p>NVIDIA Deep Learning Institute (GPU Acceleration)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-info">
+          <h3>Let's <span class="gradient-text">Connect</span></h3>
+          <p>Feel free to reach out for engineering opportunities, technical collaborations, or hardware/software project discussions.</p>
+
+          <div class="contact-details">
+            <a href="mailto:dodamanichandappagouda@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <span>dodamanichandappagouda@gmail.com</span>
+            </a>
+
+            <a href="tel:+916361481006" class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <span>+91 6361481006</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/chandappagouda-dodamani-540993338/" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <span>linkedin.com/in/chandappagouda-dodamani</span>
+            </a>
+
+            <a href="https://github.com/dodamanichandappagouda-ctrl" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+              <span>github.com/dodamanichandappagouda-ctrl</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Netlify Forms: enable form detection and notifications in Netlify settings -->
+        <form
+          class="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact">
+
+          <div class="form-group" style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label>Do not fill this out:
+              <input name="bot-field" tabindex="-1" autocomplete="off">
+            </label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeResumeModal()" aria-label="Close resume">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-actions" style="margin-bottom:1.5rem;display:flex;justify-content:flex-end;gap:1rem;flex-wrap:wrap;">
+        <a href="resume.pdf" download="Chandappagouda-Dodamani-Resume.pdf"
+           class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">
+          <i class="fa-solid fa-file-pdf"></i> Download Resume PDF
+        </a>
+
+        <button class="btn-primary" onclick="window.print()" style="border:none;cursor:pointer;">
+          <i class="fa-solid fa-print"></i> Print / Save as PDF
+        </button>
+      </div>
+
+      <div id="printable-resume">
+        <div style="border-bottom:2px solid var(--primary);padding-bottom:1rem;margin-bottom:1.5rem;">
+          <h1 style="font-size:2rem;color:var(--text-main);">CHANDAPPAGOUDA B DODAMANI</h1>
+          <p style="color:var(--text-muted);font-size:0.95rem;">
+            Bangalore, Karnataka, India | +91 6361481006 | dodamanichandappagouda@gmail.com
+          </p>
+          <p style="color:var(--primary);font-size:0.9rem;margin-top:0.3rem;">
+            LinkedIn: linkedin.com/in/chandappagouda-dodamani | GitHub: github.com/dodamanichandappagouda-ctrl
+          </p>
+        </div>
+
+        <div style="margin-bottom:1.5rem;">
+          <h3 style="color:var(--primary);font-size:1.1rem;margin-bottom:0.5rem;text-transform:uppercase;">Summary</h3>
+          <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.6;">
+            Results-driven Electronics and Computer Engineering (ECM) student maintaining a 7.6 CGPA, specializing in AI-driven IoT architectures and microcomputer systems. Proficient in Python, C++, foundational Linux Shell scripting, and hardware-software integration utilizing Raspberry Pi and ESP32. Experienced in Database Management Systems (DBMS), CMOS design basics (Cadence Virtuoso), and engineering LLM-powered applications and RAG pipelines.
+          </p>
+        </div>
+
+        <div style="margin-bottom:1.5rem;">
+          <h3 style="color:var(--primary);font-size:1.1rem;margin-bottom:0.5rem;text-transform:uppercase;">Education</h3>
+
+          <div style="margin-bottom:0.8rem;">
+            <div style="display:flex;justify-content:space-between;font-weight:700;">
+              <span>B.Tech in Electronics and Computer Engineering — REVA University</span>
+              <span>2024 – 2028</span>
+            </div>
+            <div style="color:var(--text-muted);font-size:0.9rem;">CGPA: 7.6 / 10.0</div>
+          </div>
+
+          <div style="margin-bottom:0.8rem;">
+            <div style="display:flex;justify-content:space-between;font-weight:700;">
+              <span>Pre-University Course (PUC) — Vision PU College</span>
+              <span>2023 – 2024</span>
+            </div>
+            <div style="color:var(--text-muted);font-size:0.9rem;">Result: 88.5%</div>
+          </div>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;">
+              <span>Secondary School Leaving Certificate (SSLC) — Excellent English Medium School</span>
+              <span>2021 – 2022</span>
+            </div>
+            <div style="color:var(--text-muted);font-size:0.9rem;">Result: 91.2%</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.5rem;">
+          <h3 style="color:var(--primary);font-size:1.1rem;margin-bottom:0.5rem;text-transform:uppercase;">Technical Skills</h3>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:0.4rem;"><strong>AI & LLMs:</strong> LangChain, RAG Pipelines, Prompt Engineering, Vector Databases (Pinecone, Chroma), Hugging Face</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:0.4rem;"><strong>Programming & Systems:</strong> Python (Advanced), C, C++, MicroPython, SQL, Linux & Shell Scripting (Basics)</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:0.4rem;"><strong>Core CS & VLSI:</strong> DBMS, CMOS Design (Cadence Virtuoso Basics), Object-Oriented Programming (OOP)</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;"><strong>Hardware & Tools:</strong> Raspberry Pi, ESP32, Cadence, Git/GitHub, Docker, VS Code, Arduino IDE</p>
+        </div>
+
+        <div>
+          <h3 style="color:var(--primary);font-size:1.1rem;margin-bottom:0.5rem;text-transform:uppercase;">Projects</h3>
+
+          <div style="margin-bottom:0.8rem;">
+            <div style="font-weight:700;">Pi-hole Network-Wide Ad Blocker</div>
+            <div style="color:var(--text-muted);font-size:0.9rem;">Engineered DNS sinkhole on Raspberry Pi blocking tracking telemetry across 15+ devices, reducing bandwidth by 35%.</div>
+          </div>
+
+          <div style="margin-bottom:0.8rem;">
+            <div style="font-weight:700;">Smart Telemetry Dashboard</div>
+            <div style="color:var(--text-muted);font-size:0.9rem;">Developed IoT logging system on ESP32 dual-core processor over MQTT with &lt;50ms latency.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animated particle background
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = Array.from({ length: 60 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      alpha: Math.random() * 0.5 + 0.2
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    function openResumeModal() {
+      document.getElementById('resumeModal').classList.add('active');
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resumeModal').classList.remove('active');
+    }
+
+    // Close the resume modal when clicking outside it
+    document.getElementById('resumeModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeResumeModal();
+      }
+    });
+
+    // Close the resume modal with the Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeResumeModal();
+      }
+    });
+  </script>
+</body>
+</html>
